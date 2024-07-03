@@ -1,12 +1,14 @@
 // enums2.rs
-// Execute `rustlings hint enums2` or use the `hint` watch subcommand for a hint.
+//
+// Execute `rustlings hint enums2` or use the `hint` watch subcommand for a
+// hint.
 
 
 #[derive(Debug)]
 enum Message {
-    Move{x: u8, y: u8},
+    Move{x: u32, y: u32},
     Echo(String),
-    ChangeColor(u8, u8, u8),
+    ChangeColor(u32, u32, u32),
     Quit,
 }
 

@@ -1,5 +1,7 @@
 // modules1.rs
-// Execute `rustlings hint modules1` or use the `hint` watch subcommand for a hint.
+//
+// Execute `rustlings hint modules1` or use the `hint` watch subcommand for a
+// hint.
 
 
 mod sausage_factory {
@@ -13,6 +15,8 @@ mod sausage_factory {
         println!("sausage!");
     }
 }
+
+//use sausage_factory;
 
 fn main() {
     sausage_factory::make_sausage();

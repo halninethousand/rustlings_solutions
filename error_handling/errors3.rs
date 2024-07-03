@@ -1,8 +1,11 @@
 // errors3.rs
+//
 // This is a program that is trying to use a completed version of the
 // `total_cost` function from the previous exercise. It's not working though!
 // Why not? What should we do to fix it?
-// Execute `rustlings hint errors3` or use the `hint` watch subcommand for a hint.
+//
+// Execute `rustlings hint errors3` or use the `hint` watch subcommand for a
+// hint.
 
 
 use std::num::ParseIntError;
@@ -14,10 +17,12 @@ fn main() -> Result<(), ParseIntError> {
     let cost = total_cost(pretend_user_input)?;
 
     if cost > tokens {
-        Ok(println!("You can't afford that many!"))
+        println!("You can't afford that many!");
+        Ok(())
     } else {
         tokens -= cost;
-        Ok(println!("You now have {} tokens.", tokens))
+        println!("You now have {} tokens.", tokens);
+        Ok(())
     }
 }
 

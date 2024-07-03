@@ -1,14 +1,15 @@
 // quiz2.rs
+//
 // This is a quiz for the following sections:
 // - Strings
 // - Vecs
 // - Move semantics
 // - Modules
 // - Enums
-
-// Let's build a little machine in the form of a function.
-// As input, we're going to give a list of strings and commands. These commands
-// determine what action is going to be applied to the string. It can either be:
+//
+// Let's build a little machine in the form of a function. As input, we're going
+// to give a list of strings and commands. These commands determine what action
+// is going to be applied to the string. It can either be:
 // - Uppercase the string
 // - Trim the string
 // - Append "bar" to the string a specified amount of times
@@ -16,9 +17,10 @@
 // - The input is going to be a Vector of a 2-length tuple,
 //   the first element is the string, the second one is the command.
 // - The output element is going to be a Vector of strings.
+//
 // No hints this time!
 
-
+#[derive(Debug)]
 pub enum Command {
     Uppercase,
     Trim,
@@ -29,23 +31,19 @@ mod my_module {
     use super::Command;
 
     // TODO: Complete the function signature!
-    pub fn transformer(input: Vec<(String, Command)>) -> Vec<String> {
+    pub fn transformer(input: Vec<(&str, Command)>) -> Vec<String> {
         // TODO: Complete the output declaration!
         let mut output: Vec<String> = vec![];
         for (string, command) in input.iter() {
             match command {
                 Command::Uppercase => output.push(string.to_uppercase()),
-                Command::Trim => output.push(string.trim().to_owned()),
-                Command::Append(n) => {
-                    let mut to_append = String::new();
-                    let mut return_str = string.clone();
-                    for x in 1..=*n {
-                        to_append.push_str("bar")
-                    }
-                    return_str.push_str(&to_append);
-                    output.push(return_str);
-                },
+                Command::Trim => output.push(string.trim().to_string()),
+                Command::Append(w) => {
+                    let appended = format!("{}{}", string, "bar".repeat(*w));
+                    output.push(appended);
+                }
             }
+            // TODO: Complete the function body. You can do it!
         }
         output
     }
